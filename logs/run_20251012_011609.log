@@ -1,0 +1,12 @@
+Using backend: pytorch
+Other supported backends: tensorflow.compat.v1, tensorflow, jax, paddle.
+paddle supports more examples now and is recommended.
+Warning: CSGDifference.uniform_points not implemented. Use random_points instead.
+Warning: 2000 points required, but 2048 points sampled.
+Compiling model...
+'compile' took 0.552430 s
+
+Training model...
+
+Step      Train loss                                                                Test loss                                                                 Test metric
+0         [1.18e+01, 5.58e-02, 1.12e-01, 8.97e+00, 7.68e+00, 2.26e+00, 2.90e+03]    [1.29e+01, 5.42e-02, 1.00e-01, 8.97e+00, 7.68e+00, 2.26e+00, 2.90e+03]    []  
