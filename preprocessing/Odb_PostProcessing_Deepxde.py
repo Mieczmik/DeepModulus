@@ -17,10 +17,9 @@ dic_connectivity = {} # ele_index: (node_list,node_type)
 " Part 1 : Read the displacement at given frame"
 #
 
-#odb_name = "NH-PE-NoHole.odb"
-#odb_name = "NH-PE-Hole.odb"
-odb_name = "Job-1.odb"
-#odb_name = "tilt-9-job.odb"
+
+# odb_name = r"Data\nh\nh.odb"
+odb_name = r"Data\yeoh\yeoh.odb"
 #
 odb = openOdb(odb_name)
 #
