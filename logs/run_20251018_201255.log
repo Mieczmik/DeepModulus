@@ -1,0 +1,24 @@
+Using backend: pytorch
+Other supported backends: tensorflow.compat.v1, tensorflow, jax, paddle.
+paddle supports more examples now and is recommended.
+Warning: CSGDifference.uniform_points not implemented. Use random_points instead.
+Compiling model...
+'compile' took 0.667842 s
+
+Training model...
+
+Step      Train loss                                                                Test loss                                                                 Test metric
+0         [9.23e+00, 2.71e+03, 2.27e+02, 1.97e+02, 6.80e+02, 3.43e+01, 3.81e+03]    [8.73e+00, 4.22e+03, 3.04e+02, 1.97e+02, 6.80e+02, 3.43e+01, 3.81e+03]    []  
+1000      [2.96e+00, 9.07e+00, 6.81e-01, 8.63e+00, 1.77e+02, 1.08e+00, 3.53e+01]    [3.32e+00, 1.08e+01, 6.69e-01, 8.63e+00, 1.77e+02, 1.08e+00, 3.53e+01]    []  
+2000      [2.47e+00, 1.79e+01, 1.21e+00, 8.31e+00, 1.45e+02, 4.67e-01, 2.50e+01]    [2.73e+00, 2.05e+01, 1.18e+00, 8.31e+00, 1.45e+02, 4.67e-01, 2.50e+01]    []  
+3000      [8.40e+00, 1.03e+01, 1.17e+00, 9.07e+00, 8.18e+01, 5.33e-01, 7.63e+00]    [1.44e+01, 1.59e+01, 1.75e+00, 9.07e+00, 8.18e+01, 5.33e-01, 7.63e+00]    []  
+4000      [nan, nan, nan, nan, nan, nan, nan]                                       [nan, nan, nan, nan, nan, nan, nan]                                       []  
+
+Best model at step 3000:
+  train loss: 1.19e+02
+  test loss: 1.31e+02
+  test metric: []
+
+'train' took 180.923023 s
+
+mu, lam = (tensor(nan, device='cuda:0', requires_grad=True), tensor(nan, device='cuda:0', requires_grad=True), tensor(nan, device='cuda:0', requires_grad=True))

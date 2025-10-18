@@ -1,0 +1,8 @@
+Using backend: pytorch
+Other supported backends: tensorflow.compat.v1, tensorflow, jax, paddle.
+paddle supports more examples now and is recommended.
+Warning: CSGDifference.uniform_points not implemented. Use random_points instead.
+Compiling model...
+'compile' took 0.588101 s
+
+Terminated

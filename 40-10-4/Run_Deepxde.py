@@ -1,3 +1,6 @@
+noise = 0.1
+num_epochs = 800000
+num_speckle= 40
 import mlflow
 import mlflow.pyfunc
 from pathlib import Path
@@ -21,8 +24,6 @@ import random
 import time
 #
 import math
-import sys
-sys.path.append(str(Path(__file__).resolve().parents[1]))
 from utils import mlflow_logger
 
 
@@ -472,26 +473,26 @@ C3 = dde.Variable(0.01)
 model.compile("adam", lr=0.001,external_trainable_variables=[C1,C2,C3],loss_weights = weights)
 variable = dde.callbacks.VariableValue([C1,C2,C3], period=100,filename="variable_history",precision=9)
 #
-# mlflow.set_tracking_uri("http://localhost:5001")  # port z docker-compose
-# mlflow.set_experiment("pinn-plate-hole-yeoh")     # dowolna nazwa
+mlflow.set_tracking_uri("http://localhost:5001")  # port z docker-compose
+mlflow.set_experiment("pinn-plate-hole-yeoh")     # dowolna nazwa
 
-# run = mlflow.start_run(run_name=f"{law_name}-stretch{stretch}")
-# # parametry/wersje
-# mlflow.log_params({
-#     "law_name": law_name,
-#     "stretch": stretch,
-#     "W": W, "H": H, "R": R, "T": T,
-#     "w": w, "h": h, "r": r,
-#     "num_time": int(num_time),
-#     "net_layers": 3, "net_width": 30,
-#     "backend": "pytorch",
-#     "dde_version": dde.__version__,
-# })
+run = mlflow.start_run(run_name=f"{law_name}-stretch{stretch}")
+# parametry/wersje
+mlflow.log_params({
+    "law_name": law_name,
+    "stretch": stretch,
+    "W": W, "H": H, "R": R, "T": T,
+    "w": w, "h": h, "r": r,
+    "num_time": int(num_time),
+    "net_layers": 3, "net_width": 30,
+    "backend": "pytorch",
+    "dde_version": dde.__version__,
+})
 
-# if mlflow.active_run() is None:
-#     mlflow.start_run(run_name=f"{law_name}-stretch{stretch}")
+if mlflow.active_run() is None:
+    mlflow.start_run(run_name=f"{law_name}-stretch{stretch}")
 
-#mlf_cb = mlflow_logger.MLflowLogger(every=100, artifact_every=1000, vars_to_log=[C1, C2, C3])
+mlf_cb = mlflow_logger.MLflowLogger(every=100, artifact_every=1000, vars_to_log=[C1, C2, C3])
 model.train(iterations=50000, display_every = 1000, callbacks=[variable])
 model.save("Siyuan_AUG_12")
 

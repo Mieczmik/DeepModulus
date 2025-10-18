@@ -1,3 +1,6 @@
+noise = 0.1
+num_epochs = 800000
+num_speckle= 40
 import mlflow
 import mlflow.pyfunc
 from pathlib import Path
@@ -465,9 +468,9 @@ weights[6] = 100
 #
 # Step-1 Train NeoHookean
 #
-C1 = dde.Variable(1.0)
-C2 = dde.Variable(0.1)
-C3 = dde.Variable(0.01)
+C1 = dde.Variable(5.0)
+C2 = dde.Variable(1.0)
+C3 = dde.Variable(0.1)
 #
 model.compile("adam", lr=0.001,external_trainable_variables=[C1,C2,C3],loss_weights = weights)
 variable = dde.callbacks.VariableValue([C1,C2,C3], period=100,filename="variable_history",precision=9)
